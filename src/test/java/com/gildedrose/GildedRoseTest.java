@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-import org.approvaltests.Approvals;
+import org.approvaltests.combinations.CombinationApprovals;
 import org.approvaltests.reporters.UseReporter;
 import org.approvaltests.reporters.intellij.IntelliJReporter;
 import org.junit.jupiter.api.Test;
@@ -10,8 +10,12 @@ class GildedRoseTest {
 
   @Test
   void updateQuality() {
-    String itemString = doUpdateQuality("foo", 0, 0);
-    Approvals.verify(itemString);
+    CombinationApprovals.verifyAllCombinations(
+        this::doUpdateQuality,
+        new String[]{"foo"},
+        new Integer[]{0},
+        new Integer[]{0}
+    );
   }
 
   private String doUpdateQuality(String name, int sellIn, int quality) {
