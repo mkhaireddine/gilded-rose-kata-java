@@ -8,7 +8,7 @@ public class AgedBrie extends Item {
 
   @Override
   void updateItemQuality() {
-    switch (name) {
+    switch ("Aged Brie") {
       case "Aged Brie":
         if (quality < 50) {
           quality = quality + 1;

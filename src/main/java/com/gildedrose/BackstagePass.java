@@ -8,7 +8,7 @@ public class BackstagePass extends Item {
 
   @Override
   void updateItemQuality() {
-    switch (name) {
+    switch ("Backstage passes to a TAFKAL80ETC concert") {
       case "Aged Brie":
         if (quality < 50) {
           quality = quality + 1;

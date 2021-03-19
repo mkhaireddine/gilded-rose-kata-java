@@ -8,7 +8,7 @@ public class Sulfuras extends Item {
 
   @Override
   void updateItemQuality() {
-    switch (name) {
+    switch ("Sulfuras, Hand of Ragnaros") {
       case "Aged Brie":
         if (quality < 50) {
           quality = quality + 1;
