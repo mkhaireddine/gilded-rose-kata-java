@@ -31,4 +31,72 @@ public class Item {
   public String toString() {
     return this.name + ", " + this.sellIn + ", " + this.quality;
   }
+
+  void updateAgedBrie() {
+    if (quality < 50) {
+      quality = quality + 1;
+
+    }
+    sellIn = sellIn - 1;
+    if (sellIn < 0) {
+      if (quality < 50) {
+        quality = quality + 1;
+      }
+    }
+  }
+
+  void updateConcert() {
+    if (quality < 50) {
+      quality = quality + 1;
+
+      if (sellIn < 11) {
+        if (quality < 50) {
+          quality = quality + 1;
+        }
+      }
+
+      if (sellIn < 6) {
+        if (quality < 50) {
+          quality = quality + 1;
+        }
+      }
+    }
+
+    sellIn = sellIn - 1;
+
+    if (sellIn < 0) {
+      quality = 0;
+    }
+  }
+
+  void updateDefault() {
+    if (quality > 0) {
+      quality = quality - 1;
+    }
+
+    sellIn = sellIn - 1;
+
+    if (sellIn < 0) {
+      if (quality > 0) {
+        quality = quality - 1;
+      }
+    }
+  }
+
+  void updateItemQuality() {
+    switch (name) {
+      case "Aged Brie":
+        updateAgedBrie();
+        break;
+      case "Backstage passes to a TAFKAL80ETC concert":
+        updateConcert();
+        break;
+      case "Sulfuras, Hand of Ragnaros":
+        break;
+      default:
+        updateDefault();
+        break;
+    }
+
+  }
 }
